@@ -6,8 +6,10 @@ Useful for setting up GitHub access:
 
   * gitcreds::gitcreds_get()
   * gitcreds::gitcreds_set()
-  * gh::gh_whami()
+  * gh::gh_whoami()
   * usethis::git_sitrep()
   * See [here](https://github.com/r-lib/remotes/blob/main/install-github.R) for more info.
 
 Users: eric, eric1
+
+[AoC2022](https://adventofcode.com/)
