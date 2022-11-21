@@ -9,3 +9,5 @@ Useful for setting up GitHub access:
   * gh::gh_whami()
   * usethis::git_sitrep()
   * See [here](https://github.com/r-lib/remotes/blob/main/install-github.R) for more info.
+
+Users: eric, eric1
