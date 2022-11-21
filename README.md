@@ -13,3 +13,8 @@ Useful for setting up GitHub access:
 Users: eric, eric1
 
 [AoC2022](https://adventofcode.com/)
+
+Git:
+
+  * delete remote branches: git fetch -p
+  * delete local branch: git branch -d <name>
