@@ -2,6 +2,8 @@
 
 My repo for work on AoC2022!
 
+Day 1 completed.
+
 Useful for setting up GitHub access:
 
   * gitcreds::gitcreds_get()
