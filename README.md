@@ -2,7 +2,7 @@
 
 My repo for work on AoC2022!
 
-Day 1 completed.
+Days competed: 1, 2
 
 Useful for setting up GitHub access:
 

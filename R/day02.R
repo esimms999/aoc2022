@@ -6,8 +6,10 @@ library(tidyverse)
 # Read in example or full data
 # data_day02_01 <- read_table("Data/data_day02_01_example", col_names = c("elf_choice", "my_choice"),
 #                             skip_empty_rows = FALSE)
-data_day02_01 <- read_table("Data/data_day02_01_full", col_names = c("elf_choice", "my_choice"),
-                            skip_empty_rows = FALSE)
+data_day02_01 <- read_table("Data/data_day02_01_full",
+  col_names = c("elf_choice", "my_choice"),
+  skip_empty_rows = FALSE
+)
 
 # ----- Part1 -----
 # A/X for Rock, B/Y for Paper, and C/Z for Scissors.
@@ -16,28 +18,28 @@ data_day02_01 <- read_table("Data/data_day02_01_full", col_names = c("elf_choice
 
 df <- data_day02_01 %>%
   mutate(elf_choice = case_when(
-    elf_choice=="A" ~ "X",
-    elf_choice=="B" ~ "Y",
-    elf_choice=="C" ~ "Z"
+    elf_choice == "A" ~ "X",
+    elf_choice == "B" ~ "Y",
+    elf_choice == "C" ~ "Z"
   )) %>%
   mutate(
     selection_score = case_when(
-      my_choice == "X"  ~ 1,
-      my_choice == "Y"  ~ 2,
-      my_choice == "Z"  ~ 3
+      my_choice == "X" ~ 1,
+      my_choice == "Y" ~ 2,
+      my_choice == "Z" ~ 3
     )
   ) %>%
   mutate(
     outcome_score = case_when(
       my_choice == elf_choice ~ 3,
-      my_choice == "X" & elf_choice == "Y"  ~ 0,
-      my_choice == "X" & elf_choice == "Z"  ~ 6,
-      my_choice == "Y" & elf_choice == "X"  ~ 6,
-      my_choice == "Y" & elf_choice == "Z"  ~ 0,
-      my_choice == "Z" & elf_choice == "X"  ~ 0,
-      my_choice == "Z" & elf_choice == "Y"  ~ 6
+      my_choice == "X" & elf_choice == "Y" ~ 0,
+      my_choice == "X" & elf_choice == "Z" ~ 6,
+      my_choice == "Y" & elf_choice == "X" ~ 6,
+      my_choice == "Y" & elf_choice == "Z" ~ 0,
+      my_choice == "Z" & elf_choice == "X" ~ 0,
+      my_choice == "Z" & elf_choice == "Y" ~ 6
     )
-  )   %>%
+  ) %>%
   mutate(game_score = selection_score + outcome_score) %>%
   summarise(total_score = sum(game_score))
 
@@ -56,15 +58,15 @@ total_score1 <- df %>%
 df <- data_day02_01 %>%
   rename(my_strategy = my_choice) %>%
   mutate(elf_choice = case_when(
-    elf_choice=="A" ~ "X",
-    elf_choice=="B" ~ "Y",
-    elf_choice=="C" ~ "Z"
+    elf_choice == "A" ~ "X",
+    elf_choice == "B" ~ "Y",
+    elf_choice == "C" ~ "Z"
   )) %>%
   mutate(
     outcome_score = case_when(
-      my_strategy == "X"  ~ 0,
-      my_strategy == "Y"  ~ 3,
-      my_strategy == "Z"  ~ 6
+      my_strategy == "X" ~ 0,
+      my_strategy == "Y" ~ 3,
+      my_strategy == "Z" ~ 6
     )
   ) %>%
   mutate(
@@ -79,7 +81,7 @@ df <- data_day02_01 %>%
       my_strategy == "Z" & elf_choice == "Y" ~ 3,
       my_strategy == "Z" & elf_choice == "Z" ~ 1
     )
-  )   %>%
+  ) %>%
   mutate(game_score = selection_score + outcome_score) %>%
   summarise(total_score = sum(game_score))
 
