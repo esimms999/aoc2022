@@ -1,5 +1,5 @@
 # AoC2022: Day03
-# The answers are x and y.
+# The answers are 7581 and y.
 
 library(tidyverse)
 
