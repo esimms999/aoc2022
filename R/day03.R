@@ -1,11 +1,11 @@
 # AoC2022: Day03
-# The answers are 7581 and y.
+# The answers are 7581 and 2525.
 
 library(tidyverse)
 
 # Read in example or full data
-data_day03_01 <- read_table("Data/data_day03_01_example", col_names = "fullString")
-# data_day03_01 <- read_table("Data/data_day03_01_full", col_names = "fullString")
+# data_day03_01 <- read_table("Data/data_day03_01_example", col_names = "fullString")
+data_day03_01 <- read_table("Data/data_day03_01_full", col_names = "fullString")
 
 # ----- Part1 -----
 #
@@ -38,9 +38,6 @@ cat("Part 1: Total score: ", total_score, "\n")
 # Structure data:
 df2<-data_day03_01 %>%
  mutate(fS=sapply(str_split(fullString, ""), unique))
- # mutate(fSx=unlist(fS,use.names = FALSE))
-  #mutate(fS=str_split(fullString,"",simplify = TRUE)) %>%
-  mutate(fS=str_split(fullString,"",simplify = TRUE)) %>%
 
 num_rows<-nrow(data_day03_01)/3
 elf_group<-as_tibble_col(paste0("group",rep(1:num_rows,each=3)),
@@ -61,5 +58,10 @@ for (x in 1:num_rows)
   d3<-as_vector(df5$fS3[x])
   ddd$inter<-str_c(ddd$inter,intersect(intersect(d1,d2),d3))
 }
-ddd
+
+dupLetter_vector<-as_vector(str_split(ddd,""))
+dupLetter_position<-str_locate(lowerUpper,dupLetter_vector)
+total_score<-sum(dupLetter_position[,1])
+cat("Part 2: Total score: ", total_score, "\n")
+
 # ----- Print results -----
