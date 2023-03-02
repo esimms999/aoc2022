@@ -48,7 +48,7 @@ col_names<-as_tibble_col(paste0("fS", rep(1:3,times=num_rows)),
 df4<-bind_cols(df3,col_names)
 
 df5<-df4 %>%
-  pivot_wider(id_col=group, names_from = items, values_from = fS)
+  pivot_wider(id_cols=group, names_from = items, values_from = fS)
 
 ddd<-list("inter"="")
 for (x in 1:num_rows)
